@@ -1,17 +1,20 @@
-import express from "express";
-import dates from "./Dates";
-import quotes from "./Quotes";
-import routes from "./Routes";
-import list-markets from "./List-markets";
-import list-places from "./List-places"
+const express = require("express");
+// const dates = require("./Dates");
+// const quotes = require("./Quotes");
+// const routes = require("./Routes");
+// const listmarkets = require("./Listmarkets");
+const listplaces = require("./listplaces");
+const user = require("./user");
 
 const router = express.Router();
 
-router.use('/Dates', dates);
-router.use('/Quotes', quotes);
-router.use('/Routes', routes);
-router.use('/List-markets',list-markets );
-router.use('/List-places', list-places );
+// router.use('/Dates', dates);
+// router.use('/Quotes', quotes);
+// router.use('/Routes', routes);
+// router.use('/Listmarkets',listmarkets );
+router.use('/listplaces', listplaces );
+router.use('/user', user );
 
 
-export default router;
+
+module.exports = router

@@ -1,26 +1,23 @@
-import express from "express";
+const express = require("express");
 
 const router = express.Router();
 
 const axios = require("axios");
 
-axios({
-    "method":"GET",
-    "url":"https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browseroutes/v1.0/US/USD/en-US/SFO-sky/ORD-sky/2019-09-01",
-    "headers":{
-    "content-type":"application/octet-stream",
-    "x-rapidapi-host":"skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
-    "x-rapidapi-key":"8a3276ff60msh33260bd41351506p1ba520jsnb5f5f830627b",
-    "useQueryString":true
-    },"params":{
-    "inboundpartialdate":"2019-12-01"
-    }
-    })
-    .then((response)=>{
-      console.log(response)
-    })
-    .catch((error)=>{
-      console.log(error)
-    })
+var options = {
+  method: 'GET',
+  url: 'https://rapidapi.p.rapidapi.com/apiservices/browseroutes/v1.0/US/USD/en-US/SFO-sky/ORD-sky/2019-09-01',
+  params: {inboundpartialdate: '2019-12-01'},
+  headers: {
+    'x-rapidapi-host': 'skyscanner-skyscanner-flight-search-v1.p.rapidapi.com',
+    'x-rapidapi-key': '8a3276ff60msh33260bd41351506p1ba520jsnb5f5f830627b'
+  }
+};
 
-export default router;
+axios.request(options).then(function (response) {
+	console.log(response.data);
+}).catch(function (error) {
+	console.error(error);
+});
+
+module.exports = router

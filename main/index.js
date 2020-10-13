@@ -1,6 +1,6 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import routes from './routes';
+const express = require("express");
+const bodyParser = require("body-parser");
+const routes = require("./routes/index.js");
 
 const app = express();
 
@@ -10,6 +10,6 @@ app.use('/', async function (req, res) {
   res.send('Sorry no such route available');
 });
 
-app.listen(3000, function () {
-    console.log('Example app listening on port 3000!');
+app.listen(3002, function () {
+    console.log('Example app listening on port 3002!');
 });
